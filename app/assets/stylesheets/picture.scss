@@ -1,0 +1,14 @@
+.main__content {
+  @include setbox(100vh,none,$white);
+  position:relative;
+  &__wrapper {
+  @include setbox(500px,700px,$blue);
+  @include position-absolute(absolute,0,0,0,0,auto);
+  position: relative;
+  }
+    img {
+      height: 400px;
+      width: 600px;
+      @include position-absolute(absolute,0,0,0,0,auto);
+    }
+}

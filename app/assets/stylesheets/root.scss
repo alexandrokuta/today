@@ -1,0 +1,41 @@
+@mixin setbox($height:100px,$width:100px,$background-color:$orange) {
+  height: $height;
+  width: $width;
+  background-color: $background-color;
+}
+
+@mixin position-absolute ($absolute: absolute,$top: 0,$right: 0,$left: 0,$bottom: 0,$margin: auto){
+  position: $absolute;
+  top: $top;
+  right: $right;
+  left: $left;
+  bottom: $bottom;
+  margin: $margin;
+}
+
+
+
+.navibar {
+  h1 {
+    font-size: 100px;
+    font-family:cursive;
+    color:black;
+  }
+  @include setbox(150px, none, $orange);
+  position: relative;
+  .fa-camera:before {
+    font-size: 50px;
+    color: $white;
+    @include position-absolute(absolute,40px,200px,none,0,auto);
+  }
+  .fas.fa-user:before {
+    font-size: 50px;
+    color: $white;
+    @include position-absolute(absolute,38px,110px,none,0,auto);
+  }
+  .fas.fa-sign-in-alt:before {
+    font-size: 50px;
+    color: $white;
+    @include position-absolute(absolute,40px,29px,none,0,auto);
+  }
+}
