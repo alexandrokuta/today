@@ -56,3 +56,5 @@ gem 'devise'
 gem 'kaminari'
 gem 'haml-rails'
 gem 'erb2haml'
+gem "font-awesome-rails"
+

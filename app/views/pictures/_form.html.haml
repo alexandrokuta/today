@@ -1,0 +1,7 @@
+= form_for @picture do |f|
+  .form__new__picture
+= f.label :picture
+  = fa_icon 'camera-retro', class: 'icon'
+  = f.file_field :image, class: 'hidden'
+  = f.text_field :text, class: 'text'
+  = f.submit "POST"

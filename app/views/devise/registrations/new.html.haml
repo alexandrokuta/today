@@ -1,0 +1,30 @@
+.devise__content
+  = image_tag "hawaii.jpg"
+  .devise__content--signup
+    %h2.signup Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .signup__name
+        = f.label :nickname
+        %br/
+        = f.text_field :nickname
+      .signup__email
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .signup__password
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .signup__password
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .actions
+        =fa_icon 'sign-out-alt'
+        = f.submit "Sign up"
+      = render "devise/shared/links"
+
