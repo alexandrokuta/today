@@ -1,5 +1,6 @@
-= render 'pictures/index'
+= render 'pictures/link'
 %h2.nickname
-= "#{@nickname}さんの投稿"
+  = "#{@nickname}さんの投稿"
 - @pictures.each do |picture|
-  = render partial:'pictures/picture', locals:{ picture: picture}
+  = render partial:'pictures/show', locals:{ picture: picture}
+= paginate @pictures

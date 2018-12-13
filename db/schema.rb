@@ -10,14 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181210121448) do
+ActiveRecord::Schema.define(version: 20181213124711) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "text",       null: false
+    t.integer  "user_id",    null: false
+    t.integer  "picture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_comments_on_picture_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picture_id"], name: "index_likes_on_picture_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "image",      limit: 65535, null: false
+    t.text     "image",       limit: 65535, null: false
     t.string   "text"
-    t.integer  "user_id",                  null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "user_id",                   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "likes_count"
     t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree
   end
 
@@ -34,4 +54,8 @@ ActiveRecord::Schema.define(version: 20181210121448) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "pictures"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "pictures"
+  add_foreign_key "likes", "users"
 end

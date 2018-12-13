@@ -1,0 +1,15 @@
+- if user_signed_in?
+  - if picture.like_user(current_user.id)
+    = button_to picture_likes_path(like, picture_id: picuture.id), method: :delete, id: "like_button", remote: true do
+      %i.fas.fa-heart
+    %span
+      = picture.likes_count
+  - else
+    = button_to picture_likes_path(picture), id: "like_button", remote: true do
+      %i.fas.fa-heart
+    %span
+      = picture.likes_count
+- else
+  %i.fas.fa-heart
+    %span
+    = picture.likes_count

@@ -1,0 +1,23 @@
+class LikesController < ApplicationController
+ before_action :set_picture, only: [:create, :destroy]
+
+  def create
+    @like = Like.create(user_id: current_user.id, tweet_id: params[:picture_id])
+    @likes = Like.where(picture_id: params[:picture_id])
+    @pictures = Picture.all
+  end
+
+  def destroy
+    like = Like.find_by(user_id: current_user.id, picture_id: params[:picture_id])
+    like.destroy
+    @lekes = Like.where(picture_id: params[:picture_id])
+    @pictures = Picture.all
+  end
+
+
+
+  private
+  def set_picture
+    @picture = Picture.find(params[:picture_id])
+  end
+end

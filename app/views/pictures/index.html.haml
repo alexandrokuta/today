@@ -1,3 +1,5 @@
-= render 'index'
+= render 'link'
 - @pictures.each do |picture|
   = render partial:'picture', locals:{ picture: picture}
+  = render partial: 'likes/likes', locals:{ picture: picture }
+= paginate @pictures
