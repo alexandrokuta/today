@@ -1,6 +1,3 @@
-.navibar
-  %h1 TODAY
-  %i.fas.fa-camera
-  %i.fas.fa-user
-  %i.fas.fa-sign-in-alt
-= render 'picture'
+= render 'index'
+- @pictures.each do |picture|
+  = render partial:'picture', locals:{ picture: picture}

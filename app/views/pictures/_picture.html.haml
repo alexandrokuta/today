@@ -1,3 +1,4 @@
 .main__content
-  .main__content__wrapper
-    =image_tag "sample.jpg",class: "main__content_wrapper--picture"
+  = image_tag picture.image.url ,class: "main__content--picture"
+  %p
+    = picture.text

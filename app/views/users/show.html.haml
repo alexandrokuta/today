@@ -1,0 +1,5 @@
+= render 'pictures/index'
+%h2.nickname
+= "#{@nickname}さんの投稿"
+- @pictures.each do |picture|
+  = render partial:'pictures/picture', locals:{ picture: picture}

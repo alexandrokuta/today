@@ -1,0 +1,37 @@
+.form__new {
+    height: 100vh;
+    width: 900px;
+    background-color: aqua;
+    margin: auto;
+    position: relative;
+  h1 {
+    font-size: 100px;
+    font-family:cursive;
+    text-align: center;
+  }
+  }
+
+.new__picture {
+  height: 100px;
+  width: 100px;
+}
+
+.fa-camera-retro:before  {
+  font-size: 100px;
+  @include position-absolute(absolute,500px,800px,none,0,auto);
+}
+
+.text {
+  height:50px;
+  width: 400px;
+  @include position-absolute(absolute,600px,530px,none,0,auto);
+}
+.post {
+  @include position-absolute(absolute,700px,530px,none,0,auto);
+  width:400px;
+}
+
+.hidden {
+  display: none;
+}
+

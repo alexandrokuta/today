@@ -1,0 +1,8 @@
+.navibar
+  %h1 TODAY
+  = link_to new_picture_path do
+    %i.fas.fa-camera
+  %i.fas.fa-user
+  = link_to destroy_user_session_path, method: "delete" do
+    %i.fas.fa-sign-in-alt
+

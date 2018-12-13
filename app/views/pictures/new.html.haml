@@ -1,9 +1,12 @@
+= render 'index'
 .form__new
   %h1 NEW POST
-  = form_for @picture do |f|
+= form_for @picture do |f|
   .form__new__picture
-      = f.label picture
+    = f.text_field :text, class: 'text'
+    = f.label :image,class: 'label' do
       = fa_icon 'camera-retro', class: 'icon'
       = f.file_field :image, class: 'hidden'
-      = f.text_field :text, class: 'text'
-    = f.submit "POST"
+  = f.submit "POST" ,class: 'post'
+
+
