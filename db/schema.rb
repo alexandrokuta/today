@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 20181213124711) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "text",       null: false
-    t.integer  "user_id",    null: false
-    t.integer  "picture_id", null: false
+    t.integer  "user_id"
+    t.integer  "picture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["picture_id"], name: "index_comments_on_picture_id", using: :btree

@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :move_to_index
-  before_action :set_picture, only: [:destroy, :edit]
+  before_action :set_picture, only: [:destroy, :edit, :show]
 
   def index
     @pictures = Picture.includes(:user).page(params[:page]).per(5).order('created_at DESC')
@@ -17,6 +17,10 @@ class PicturesController < ApplicationController
 
   def destroy
        @picture.destroy if current_user.id == @picture.id
+  end
+
+  def show
+    @comment = Comment.new
   end
 
   private
